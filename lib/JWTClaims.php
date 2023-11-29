@@ -35,8 +35,10 @@ class JWTClaims
     */
     private function verify($token) {
         $json = file_get_contents('https://identity.xero.com/.well-known/openid-configuration/jwks');
-        $jwks =  json_decode($json, true);
+        $jwks = json_decode($json, true);
         $verifiedJWT = JWT::decode($token, JWK::parseKeySet($jwks));
+
+        // Comment by Hendrik
 
         return $verifiedJWT;
     }
