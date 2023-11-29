@@ -38,8 +38,6 @@ class JWTClaims
         $jwks = json_decode($json, true);
         $verifiedJWT = JWT::decode($token, JWK::parseKeySet($jwks));
 
-        // Comment by Hendrik
-
         return $verifiedJWT;
     }
 
